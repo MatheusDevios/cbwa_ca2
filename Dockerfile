@@ -30,3 +30,11 @@ FROM nginx:alpine
 # Exposing to the port 80
 EXPOSE 80
 
+# Removing the entire content of the /usr/share/nginx/html folder
+RUN rm -rf /usr/share/nginx/html/*
+
+# Switching to our non-root user and their working directory
+# USER static
+
+# Copying the application files into /usr/share/nginx/html
+COPY --from=build /app/mobdev_ca3-main/www/ /usr/share/nginx/html/

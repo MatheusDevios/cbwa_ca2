@@ -21,3 +21,12 @@ RUN npm install
 # Building our downloaded GitHub application for deployment
 RUN npm run build --prod
 
+# Fetching a nginx/alpine server to serve
+FROM nginx:alpine
+
+# Creating a new user to secure running commands
+# RUN adduser -D static
+
+# Exposing to the port 80
+EXPOSE 80
+
